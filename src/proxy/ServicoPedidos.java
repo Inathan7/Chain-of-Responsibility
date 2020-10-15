@@ -11,7 +11,7 @@ import java.util.List;
  * 3. Na se deseja quebrar a coesao dessa classe adicionando-lhe codigo de seguranca.
  * 
  */
-public class ServicoPedidos {
+public class ServicoPedidos implements ServicoPedidoInterface {
 
 	List<Pedido> pedidos = new ArrayList<Pedido>();
 	

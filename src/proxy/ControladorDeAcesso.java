@@ -2,7 +2,7 @@ package proxy;
 
 import java.util.HashMap;
 
-public class ControladorDeAcesso {
+public class ControladorDeAcesso extends TratadorDeAcesso {
 	
 	/* INICIO: CODIGO PARTE SINGLETON EAGER (INSANCIACAO ANTECIPADA) */
 	public static ControladorDeAcesso instancia = new ControladorDeAcesso();
@@ -29,8 +29,8 @@ public class ControladorDeAcesso {
 	 * 2. Etapa 01 login ativo n√£o e nulo; 
 	 * Etapa 02 o login so tem letras; 
 	 * Etapa 03 o login somente tem letras minusculas
-	 * Etapa 04 (verifica se existe na base do ifpb, coloque so a saida na console simulando).
-	 * 3. Aplique Chain of Responsibility aqui de modo que esse metodo vire cliente da cadeia
+	 * Etapa 04 (verifica se existe na base do ifpb, coloque so a saida na console simulando).  //N√O ENTEDNI O QUE ESSE 04
+	 * 3. Aplique Chain of Responsibility aqui de modo que esse metodo vire cliente da cadeia   //QUIS DIZER, A GENTE OLHA MELHOR.
 	 * e configure-a, usando somente ate a etapa 03.
 	 * 
 	 * PERGUNTA CHAIN.A: Outros clientes teriam que usar como tais etapas
@@ -42,9 +42,15 @@ public class ControladorDeAcesso {
 	 * 
 	 * [COLOQUE SUA RESPOSTA]
 	 * 
+	 * DEIXEI PPRA RESPONDERMOS JUNTOS
+	 * 
 	 */
+	 
 	public boolean verificarAcessoPermitido() {
-		return this.loginAtivo != null;
+		if (this.loginAtivo != null) {
+			return true;
+		}
+		return super.verificarAcessoPermitido();
 	}
 	
 	public void fazerLogin(String login, String senha) {

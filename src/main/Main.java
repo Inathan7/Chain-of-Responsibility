@@ -1,5 +1,9 @@
 package main;
 
+import proxy.ControladorDeAcesso;
+import proxy.ProxySegurancaServicoPedidos;
+import proxy.ServicoPedidoInterface;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -19,6 +23,11 @@ public class Main {
 		 * 5. Remova o segundo pedido criado		
 		 */
 		
+		ControladorDeAcesso acesso = ControladorDeAcesso.getControleAcesso();
+		acesso.fazerLogin("giuseppe", "123");
+		
+		ServicoPedidoInterface servicoPedidoProxy = new ProxySegurancaServicoPedidos();
+	//	ServicoPedidoInterface servivoPedidoDistante = servicoPedidoProxy
 		
 		/*
 		 * TODO PROXY.01.2
