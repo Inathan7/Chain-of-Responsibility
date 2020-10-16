@@ -14,37 +14,39 @@ import java.util.List;
 public class ServicoPedidos implements ServicoPedidoInterface {
 
 	List<Pedido> pedidos = new ArrayList<Pedido>();
-	
+
+	@Override
 	public boolean adicionar(int codigo, int valor) {
-		for (Pedido pedido : pedidos) {
-			if (pedido.getCodigo() == codigo) 
-				return false;
-		}
-		Pedido pedido = new Pedido(codigo, valor);
-		pedidos.add(pedido);
-		return true;
-	}
-	
-	public boolean remover(int codigo) {
-		Pedido aBuscar = buscar(codigo);
-		if (aBuscar != null)  {
-			pedidos.remove(aBuscar);
-			return true;
-		}
-		return false;
-	}
-	
-	public Pedido buscar(int codigo) {
-		Pedido aBuscar = null;
-		for (Pedido pedido : pedidos) {
-			if (pedido.getCodigo() == codigo) {
-				aBuscar = pedido;
-				break;
+			for (Pedido pedido : pedidos) {
+				if (pedido.getCodigo() == codigo) 
+					return false;
 			}
-		}
-		return aBuscar;
+			Pedido pedido = new Pedido(codigo, valor);
+			pedidos.add(pedido);
+			return true;
 	}
 
+	@Override
+	public boolean remover(int codigo) {
+			Pedido aBuscar = buscar(codigo);
+			if (aBuscar != null)  {
+				pedidos.remove(aBuscar);
+				return true;
+			}
+			return false;
+	}
+
+	@Override
+	public Pedido buscar(int codigo) {
+			Pedido aBuscar = null;
+			for (Pedido pedido : pedidos) {
+				if (pedido.getCodigo() == codigo) {
+					aBuscar = pedido;
+					break;
+				}
+			}
+			return aBuscar;
+	}
 }
 
 

@@ -9,5 +9,10 @@ package proxy;
  */
 public interface ServicoPedidoInterface {
 
+	public boolean adicionar(int codigo,int valor);
+	
+	public boolean remover(int codigo);
+	
+	public Pedido buscar(int codigo);
 	
 }

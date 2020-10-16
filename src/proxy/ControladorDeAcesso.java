@@ -2,6 +2,7 @@ package proxy;
 
 import java.util.HashMap;
 
+
 public class ControladorDeAcesso extends TratadorDeAcesso {
 	
 	/* INICIO: CODIGO PARTE SINGLETON EAGER (INSANCIACAO ANTECIPADA) */
@@ -29,8 +30,8 @@ public class ControladorDeAcesso extends TratadorDeAcesso {
 	 * 2. Etapa 01 login ativo n√£o e nulo; 
 	 * Etapa 02 o login so tem letras; 
 	 * Etapa 03 o login somente tem letras minusculas
-	 * Etapa 04 (verifica se existe na base do ifpb, coloque so a saida na console simulando).  //N√O ENTEDNI O QUE ESSE 04
-	 * 3. Aplique Chain of Responsibility aqui de modo que esse metodo vire cliente da cadeia   //QUIS DIZER, A GENTE OLHA MELHOR.
+	 * Etapa 04 (verifica se existe na base do ifpb, coloque so a saida na console simulando).
+	 * 3. Aplique Chain of Responsibility aqui de modo que esse metodo vire cliente da cadeia   
 	 * e configure-a, usando somente ate a etapa 03.
 	 * 
 	 * PERGUNTA CHAIN.A: Outros clientes teriam que usar como tais etapas
@@ -40,7 +41,11 @@ public class ControladorDeAcesso extends TratadorDeAcesso {
 	 * O padrao chain obriga a gente a parar a cadeia ou isso eh flexivel, pela caracteristica das
 	 * regras do conjunto geral em que se aplica a cadeia?
 	 * 
+	 * 
 	 * [COLOQUE SUA RESPOSTA]
+	 * A:
+	 * 
+	 * B: Isso È flexivel, ele pode parar a cadeia ou passar por toda a cadeiam o chain tem essa flexibilidade
 	 * 
 	 * DEIXEI PPRA RESPONDERMOS JUNTOS
 	 * 
@@ -54,8 +59,13 @@ public class ControladorDeAcesso extends TratadorDeAcesso {
 	}
 	
 	public void fazerLogin(String login, String senha) {
-		String conta = logados.get(login);
-		this.loginAtivo = (conta != null)? ((conta.equals(senha))? login : null) : null;
+		ControladorDeAcessoLetras letras = new ControladorDeAcessoLetras();
+		ControladorDeAcessoLetrasMinusculas minusculas = new ControladorDeAcessoLetrasMinusculas();
+		if(letras.verificarAcessoPermitido(login)&&minusculas.verificarAcessoPermitido(login)){
+			String conta = logados.get(login);
+			this.loginAtivo = (conta != null)? ((conta.equals(senha))? login : null) : null;
+			System.out.println("Resultado da consulta da base do ifpb: "+loginAtivo);
+		}
 	}
 	
 	

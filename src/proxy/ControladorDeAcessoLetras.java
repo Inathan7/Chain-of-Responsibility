@@ -4,7 +4,7 @@ package proxy;
 
 public class ControladorDeAcessoLetras extends TratadorDeAcesso {
 	
-	public boolean verificarAcessoPermitido(String login) {
+	public  boolean verificarAcessoPermitido(String login) {
 		for (int i = 0; i < login.length(); i++) {
 			char letra = login.charAt(i);
 			if(Character.isLetter(letra)) {

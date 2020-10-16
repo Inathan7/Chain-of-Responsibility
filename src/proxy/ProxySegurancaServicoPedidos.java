@@ -10,10 +10,33 @@ package proxy;
 public class ProxySegurancaServicoPedidos implements ServicoPedidoInterface {
 	
 	private ServicoPedidos servicoPedidoSubstituto;
-	
+	private ControladorDeAcesso acesso;
+    
+	public ProxySegurancaServicoPedidos(ControladorDeAcesso acesso){
+		   this.servicoPedidoSubstituto = new ServicoPedidos();
+		   this.acesso = acesso;
+	   }
+
+	public boolean adicionar(int codigo, int valor) {
+		   if(acesso.verificarAcessoPermitido()){
+			  return servicoPedidoSubstituto.adicionar(codigo, valor);
+		   }
+		   return false;
+	}
+	@Override
+	public boolean remover(int codigo) {
+		if(acesso.verificarAcessoPermitido()){
+			return servicoPedidoSubstituto.remover(codigo);
+		}
+		return false;
+	}
+	@Override
+	public Pedido buscar(int codigo) {
+		if(acesso.verificarAcessoPermitido()){
+			return servicoPedidoSubstituto.buscar(codigo);
+		}
+		return null;
+	}
 	
 
-	
-	
-	
 }
