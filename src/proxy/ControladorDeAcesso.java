@@ -43,11 +43,11 @@ public class ControladorDeAcesso extends TratadorDeAcesso {
 	 * 
 	 * 
 	 * [COLOQUE SUA RESPOSTA]
-	 * A:
 	 * 
-	 * B: Isso é flexivel, ele pode parar a cadeia ou passar por toda a cadeiam o chain tem essa flexibilidade
+	 * A: Sim, mas agora o tratamento foi dividido em classes, tornando essa classe mais coesa e dividindo melhor
+	 * 	responsabilidade, fazendo com que esse tratamento também possa ser reutilizado. 	
 	 * 
-	 * DEIXEI PPRA RESPONDERMOS JUNTOS
+	 * B: Isso é flexivel, ele pode parar a cadeia ou passar por toda a cadeia, o chain tem essa flexibilidade.
 	 * 
 	 */
 	 

@@ -1,10 +1,8 @@
 package main;
 
 import proxy.ControladorDeAcesso;
-import proxy.Pedido;
 import proxy.ProxySegurancaServicoPedidos;
 import proxy.ServicoPedidoInterface;
-import proxy.ServicoPedidos;
 
 public class Main {
 
@@ -47,7 +45,7 @@ public class Main {
 
 		 * [COLOQUE SUA RESPOSTA]
 		 * 
-		 * A: Ficaria na classe de objeto restrita - PAULO(Não tenho certeza kkkkkk)
+		 * A: Ficaria na classe de objeto restrita, trazendo baixa coesão pra mesma.
 		 * 
 		 * PERGUNTA PROXY.B: Voce esta acessando o proxy pelo supertipo comum com o objeto restrito?
 		 * Voce consegue deixar o codigo aqui de forma que depois do proxy criado, o cliente
@@ -56,7 +54,8 @@ public class Main {
 		 * [COLOQUE SUA RESPOSTA]
 		 * 
 		 * B: Sim, pois o cliente não se aclopa com subclasses mas só com o supertipo, evitando
-		 * acoplamento com o cliente, além do cliente ver o proxy como a interface que ele espera.
+		 * acoplamento com o cliente, além do cliente ver o proxy como a interface que ele espera, consigo sim, e
+		 * isso é bom, pois me dá uma certa flexibilidade, mas depende da situação.
 		 * 
 		 * 
 		 * PERGUNTA PROXY.C: O cliente ainda consegue acessar diretamente o objeto restrito aqui, sem o seu proxy?
@@ -65,7 +64,7 @@ public class Main {
 		 * [COLOQUE SUA RESPOSTA]
 		 * 
 		 * C: Sim, o cliente consegue acessar sem proxy mas não agrega o controle de acesso,
-		 * só o proxy agrega o codigo de controle de acesso
+		 * só o proxy agrega o codigo de controle de acesso.
 		 * 
 		 * 
 		 * PERGUNTA PROXY.D: Outros clientes podem reusar o mecanismo de controle de acesso aqui 
@@ -73,6 +72,7 @@ public class Main {
 		 * 
 		 * [COLOQUE SUA RESPOSTA]
 		 * 
+		 * D: Podem reusar sim, pois ganho essa reusibilidade ao usar o Chain of Responsibility.
 		 * 
 		 * PERGUNTA PROXY.E: A classe de objeto restrita se acopla com a proxy 
 		 * e sabe que ela esta sendo controlada via a proxy?
